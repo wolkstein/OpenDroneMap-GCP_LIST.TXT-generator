@@ -29,10 +29,12 @@ Following rows for GCP's starts with the number of Control Point "P1 t- Pn" foll
 ## Create GCP_Template_Images
 Important! We need Templates from the Current ODM Image-Set we plan to process. 
 Open with Gimp some of your ODM-Dataset-Images which contains GCP's we are looking for.
-With the rectangle selection tool select an area with the GCP. The mesure point must be in the center. Gimp rectangle selection offers option you can enable to draw the selection from center. See Image 1. The selected area need a size around 100x100 px. It is not important if the area is a little bit bigger than your gcp plane. Also the orientation of the GCP is not important. It is only important the the diagonal from the selection-corners will cross exactly the gps measure point from your GCP.
+With the rectangle selection tool select an area with the GCP. The mesure point must be in the center. Gimp rectangle selection offers option you can enable to draw the selection from center. See Image 1. The selected area need a size around 100x100 px. It is not important if the area is a little bit bigger than your gcp plane. Also the orientation of the GCP is not important. It is only important that the diagonal from the selection-corners will cross exactly the gps measure point from your GCP.
 
 Create an new image from selection. See Image 2. And save the image with a name corresponding to the GCP Point Number.
 GCP 1 to P1.jpg, GCP 2 to P2.jpg and so on. P1.jpg, P2.jpg... must corresponding witch the P1, P2.... in koords.txt!
+
+Save all GCP_Template Images inside your your gcp-templates directory.
 
 Gimp Selection Tool
 ![Image 1](https://github.com/wolkstein/OpenDroneMap-GCP_LIST.TXT-generator/raw/master/doc/CREATE_GCP_TEMPLATE_GIMP_1.jpg "Make GCP selection")
@@ -40,3 +42,18 @@ Gimp Selection Tool
 Gimp, create new image from selection
 ![Image2](https://github.com/wolkstein/OpenDroneMap-GCP_LIST.TXT-generator/raw/master/doc/CREATE_GCP_TEMPLATE_GIMP_2.jpg "Create new image from selection")
 
+# Start Script
+Now you can run the script.
+option -d enable debug output in gcp_list.txt file. Now, at the beginning of each row you will find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
+```
+usage: gcp_txt_gen.py [-h] [-d] [--min_match_count MIN_MATCH_COUNT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -d, --debug           Will create an GCP_LIST.txt file with Pointnames P1 -
+                        Pn in each row
+  --min_match_count MIN_MATCH_COUNT
+                        min_match_count "Default = 12, Min = 4" set the
+                        minimum amount of required good keypoints to accept a
+
+```
