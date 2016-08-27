@@ -27,13 +27,16 @@ First row contains the coordinate system.
 Following rows for GCP's starts with the number of Control Point "P1 t- Pn" followed by  X, Y & Z coordinate in your coordinate system. whitespace separate the items.
 
 ## Create GCP_Template_Images
-
-## Create GCP_Template_Images
 Important! We need Templates from the Current ODM Image-Set we plan to process. 
 Open with Gimp some of your ODM-Dataset-Images which contains GCP's we are looking for.
 With the rectangle selection tool select an area with the GCP. The mesure point must be in the center. Gimp rectangle selection offers option you can enable to draw the selection from center. See Image 1. The selected area need a size around 100x100 px. It is not important if the area is a little bit bigger than your gcp plane. Also the orientation of the GCP is not important. It is only important the the diagonal from the selection-corners will cross exactly the gps measure point from your GCP.
 
 Create an new image from selection. See Image 2. And save the image with a name corresponding to the GCP Point Number.
-
 GCP 1 to P1.jpg, GCP 2 to P2.jpg and so on. P1.jpg, P2.jpg... must corresponding witch the P1, P2.... in koords.txt!
+
+Gimp Selection Tool
+![Image 1](https://github.com/wolkstein/OpenDroneMap-GCP_LIST.TXT-generator/raw/master/doc/CREATE_GCP_TEMPLATE_GIMP_1.jpg "Make GCP selection")
+
+Gimp, create new image from selection
+![Image2](https://github.com/wolkstein/OpenDroneMap-GCP_LIST.TXT-generator/raw/master/doc/CREATE_GCP_TEMPLATE_GIMP_2.jpg "Create new image from selection")
 
