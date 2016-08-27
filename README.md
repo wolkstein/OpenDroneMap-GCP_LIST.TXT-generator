@@ -44,7 +44,7 @@ Gimp, create new image from selection
 
 # Start Script
 Now you can run the script.
-option -d enable debug output in gcp_list.txt file. Now, at the beginning of each row you will find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
+Option -d enable debug output in gcp_list.txt file. Now, at the beginning of each row you will find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
 ```
 usage: gcp_txt_gen.py [-h] [-d] [--min_match_count MIN_MATCH_COUNT]
 
@@ -57,3 +57,6 @@ optional arguments:
                         minimum amount of required good keypoints to accept a
 
 ```
+If the script finished successfully you get an nice gcp_list.txt file in working directory.
+copy this in your ODM working directory and star ODM with  --odm_georeferencing-useGcp.
+
