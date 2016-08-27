@@ -2,6 +2,8 @@
 
 Create GCP_List.txt files from a ODM Data Set with more than 100 images is an painstaking task. This Python Script will do this task for you.
 
+This repository contains some example data stored in "Images", "gcp -templates" and koords.txt. The images inside "images" are not a full usable ODM Data Set. There are only a few images to test successfully the functionality of this script.
+
 ## Technik behind:
 Feature Matching + Homography to find Objects (for example GCP_Image_Templates in an ODM image set)
 [Learn More](http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_feature_homography/py_feature_homography.html)
