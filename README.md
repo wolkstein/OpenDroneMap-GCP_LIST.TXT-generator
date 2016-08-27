@@ -12,7 +12,7 @@ opencv, libopencv-features2d, libopencv-flann, libopencv-nonfree
 Simple create an project root directory and place gcp_txt_gen.py, koords.txt in it. inside the project root create "images" directory and "gcp-templates" directory.  
 
 ## Create koords.txt
-koords text contains your gps coordinates x y z sorted by points.
+koords.txt contains your gps coordinates x y z sorted by points.
 
 Example koords.txt
 ```
@@ -23,4 +23,5 @@ P3 631696.5718546504,964995.505845105 100
 P4 631699.0934857756 964894.2005365156 100
 P5 631687.8171783998 964928.6878246851 100
 ```
-
+First row contains the coordinate system. 
+Following rows for GCP's starts with the number of Control Point "P1 t- Pn" followed by  X, Y & Z coordinate in your coordinate system. whitespace separate the items.
