@@ -1,5 +1,7 @@
 # OpenDroneMap-GCP_LIST.TXT-generator
 
+Create GCP_List.txt files from a ODM Data Set with more than 100 images is an painstaking task. This Python Script will do this task for you.
+
 ## Technik behind:
 Feature Matching + Homography to find Objects (for example GCP_Image_Templates in an ODM image set)
 [Learn More](http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_feature_homography/py_feature_homography.html)
