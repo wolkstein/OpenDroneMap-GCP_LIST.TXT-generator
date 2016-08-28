@@ -1,9 +1,7 @@
 import numpy as np
 import cv2
 import argparse
-import time
 import glob
-from matplotlib import pyplot as plt
 
 
 # ---Helper---
