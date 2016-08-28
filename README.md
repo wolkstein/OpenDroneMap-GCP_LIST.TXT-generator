@@ -37,8 +37,9 @@ With the rectangle selection tool select an area with the GCP. The mesure point 
 
 Create an new image from selection. See Image 2. And save the image with numbered names according to the order of our GCP 's.
 For example GCP 1 to P01.jpg, GCP 2 to P02.jpg and so on.
+Caution , to avoid errors in the sorting of GCP template images. If they have more than 10 GCP template images and less than 100 GCP template images they use the image name P01 - P99 . If you use more than 100 GCP template images , they have the image name P001 - P999 .
 
-Save all GCP_Template Images inside your your gcp-templates directory.
+Save all GCP template images inside your your gcp-templates directory.
 
 Gimp Selection Tool
 ![Image 1](https://github.com/wolkstein/OpenDroneMap-GCP_LIST.TXT-generator/raw/master/doc/CREATE_GCP_TEMPLATE_GIMP_1.jpg "Make GCP selection")
