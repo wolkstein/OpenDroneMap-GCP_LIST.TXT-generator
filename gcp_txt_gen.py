@@ -13,7 +13,7 @@ GCP_DEBUGMODE = False
 MIN_MATCH_COUNT = 12
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-d', '--debug', action='store_true', required=False , help='Will create an GCP_LIST.txt file with Pointnames P1 - Pn in each row')
+parser.add_argument('-d', '--debug', action='store_true', required=False , help='Will additionally create an DEBUG-GCP_LIST.txt file with Pointnames P1 - Pn in each row')
 parser.add_argument('--min_match_count', type=int, default=12, required=False, help='min_match_count "Default = 12, Min = 4" set the minimum amount of required good keypoints to accept a match of Template in Image')
 args = parser.parse_args()
 
@@ -33,6 +33,7 @@ if GCP_DEBUGMODE:
 COORDSTXT = 'koords.txt'
 # output GCP_LIST_FILE
 GCP_LIST_FILE = 'gcp_list.txt'
+GCP_LIST_FILE_DBUG = 'debug-gcp_list.txt'
 # Template Directory
 IMAGE_TEMPLATE_DIR = 'gcp-templates'
 # Image Directory
@@ -186,6 +187,8 @@ AllImageResults.sort()
 # create the gcp_txt file
 infile = open(COORDSTXT, 'r')
 outfile = open(GCP_LIST_FILE, 'w')
+if GCP_DEBUGMODE:
+    debugfile = open(GCP_LIST_FILE_DBUG, 'w')
 
 
 # example line
@@ -232,6 +235,7 @@ for line in infile:
 
 # merge strings and write to file
 mergedStrings=[]
+debugmergedStrings=[]
 for row in sortbyPmatches:
     
     internalresultsSplit = row.split(': ')
@@ -254,18 +258,22 @@ for row in sortbyPmatches:
                 print "debugstring"
                 debugstring = "%s %s %s" % (internalresultsPosNr, koordsTextPosCoords, internalresultsPosCoords)
                 print debugstring
-                mergedStrings.append(debugstring)
-            else:
-                print "normal string"
-                normalstring = "%s %s" % (koordsTextPosCoords, internalresultsPosCoords)
-                mergedStrings.append(normalstring)
+                debugmergedStrings.append(debugstring)
+            
+            print "normal string"
+            normalstring = "%s %s" % (koordsTextPosCoords, internalresultsPosCoords)
+            mergedStrings.append(normalstring)
                 
 
 
-# save first line
+# save debugfile
 if GCP_DEBUGMODE:
-    outfile.write("This file is only for debugging and contains P1 - Pn to find errors\n")
-    
+    debugfile.write("This file is only for debugging and contains P1 - Pn to find errors\n")
+    debugfile.write(myLineList[0]+'\n')
+    for row in debugmergedStrings:
+        debugfile.write(row+'\n')    
+
+#save file
 outfile.write(myLineList[0]+'\n')
 for row in mergedStrings:
     outfile.write(row+'\n')
@@ -277,6 +285,8 @@ for row in mergedStrings:
 
 infile.close()
 outfile.close()
+if GCP_DEBUGMODE:
+    debugfile.close()
 
 print "--------"
 print "finished gcp_list.txt"
