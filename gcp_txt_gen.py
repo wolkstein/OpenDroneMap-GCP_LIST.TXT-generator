@@ -56,8 +56,6 @@ flann = cv2.FlannBasedMatcher(index_params, search_params)
 
 
 
-
-
 # create image file list
 imagePathList=[]
 for file in glob.glob(IMAGE_DIR + '/*.*'):
@@ -70,16 +68,23 @@ print "Found %d Images" % (len(imagePathList))
 
 
 # open template Images
+tmpImagePathList=[]
 templateImg=[]
 for file in glob.glob(IMAGE_TEMPLATE_DIR + '/*.*'):
   if file.rsplit('.',1)[1] in ext_list :
       print file
-      templateImg.append(cv2.imread(file,0))
+      tmpImagePathList.append(file)
+
+tmpImagePathList.sort()
+print "---sorted tmpImagePathList"
+for row in tmpImagePathList:
+    print row
+    templateImg.append(cv2.imread(row,0))
+
       
-print "Found %d Images-Templates" % (len(templateImg))      
+print "Found %d Images-Templates" % (len(templateImg))
 
-templateImg.reverse()
-
+#quit()
 
 # Init SIFT detector
 sift = cv2.SIFT()
@@ -123,7 +128,7 @@ for i in range(len(imagePathList)):
         centroidXY = [0,0]
         
         paircord=[]
-        paircord.append("P%d" % (u+1))
+        paircord.append("P%d%s" % (u+1,":"))
         localTamplateKp = templateKp[u]
         if len(good)>MIN_MATCH_COUNT:
             src_pts = np.float32([ localTamplateKp[m.queryIdx].pt for m in good ]).reshape(-1,1,2)
@@ -197,7 +202,7 @@ for i in range(len(AllImageResults)):
   
   
 for i in range(len(templateImg)):
-    searchstring = "P%d" % (i+1)
+    searchstring = "P%d%s" % (i+1,":")
     for p in range(len(AllImageResults)):
         imageTempNameGetter = AllImageResults[p]
         imagename = imageTempNameGetter[0]
@@ -213,9 +218,7 @@ print "sort by gcp_points"
 #print sortbyPmatches
 for row in sortbyPmatches:
     print row
-    
-    
-                        
+
 # - end create gcp list file
 myLineList=[]
 
@@ -229,30 +232,37 @@ for line in infile:
 #for row in myLineList:
 #    print row
 
-
 # merge strings and write to file
 mergedStrings=[]
 for row in sortbyPmatches:
-    test = row
+    
+    internalresultsSplit = row.split(': ')
+    internalresultsSplit.append("end")
+    internalresultsPosNr = internalresultsSplit[0]
+    internalresultsPosCoords = internalresultsSplit[1]
+    
+    
     for row in myLineList:
-        #print row
-        #print test
-        rowtest = row[:3]
-        testtest = test[:3]
-        if rowtest == testtest:
-            #print "good"
-            #print row
-            #print test
+        koordsTextSlit = row.split(': ')
+        koordsTextSlit.append("end")
+        koordsTextPosNr = koordsTextSlit[0]
+        koordsTextPosCoords = koordsTextSlit[1]
+        # print "compare koordsTextPosNr: %s, against internalresultsPosNr: %s" %(koordsTextPosNr, internalresultsPosNr)
+        if koordsTextPosNr == internalresultsPosNr:
+            print "--good--"
+            print koordsTextPosNr
+            print internalresultsPosNr
             if GCP_DEBUGMODE:
-                secondstr = test[3:]
-                mergedStrings.append(row + " " + secondstr)
+                print "debugstring"
+                debugstring = "%s %s %s" % (internalresultsPosNr, koordsTextPosCoords, internalresultsPosCoords)
+                print debugstring
+                mergedStrings.append(debugstring)
             else:
-                firststr = row[3:]
-                secondstr = test[3:]
-                mergedStrings.append(firststr + " " + secondstr)
+                print "normal string"
+                normalstring = "%s %s" % (koordsTextPosCoords, internalresultsPosCoords)
+                mergedStrings.append(normalstring)
                 
-            
-        
+
 
 # save first line
 if GCP_DEBUGMODE:
@@ -272,9 +282,6 @@ outfile.close()
 
 print "--------"
 print "finished gcp_list.txt"
-
-
-
 
 
 # ---~Main---
