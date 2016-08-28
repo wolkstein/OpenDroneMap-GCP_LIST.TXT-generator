@@ -49,7 +49,7 @@ Gimp, create new image from selection
 
 # Start Script
 Now you can run the script.
-Option -d enable debug output in gcp_list.txt file. Now, at the beginning of each row you will find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
+Option -d enable debug output. This will additionally create an DEBUG-GCP_LIST.txt file. In this file at the beginning of each row you can find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
 ```
 usage: gcp_txt_gen.py [-h] [-d] [--min_match_count MIN_MATCH_COUNT]
 
