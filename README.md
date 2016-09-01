@@ -20,12 +20,12 @@ koords.txt contains your gps coordinates x y z sorted by points.
 
 Example koords.txt
 ```
-WGS84 UTM 39N
-P1: 631625.6784502362 964921.7122958871 100
-P2: 631629.4935495785 964967.6482094 100
-P3: 631696.5718546504,964995.505845105 100
-P4: 631699.0934857756 964894.2005365156 100
-P5: 631687.8171783998 964928.6878246851 100
+WGS84 UTM 32N
+P1: 481367 5782936 100
+P2: 481396 5782940 100
+P3: 481413 5783008 100
+P4: 481350 5783011 100
+P5: 481372 5782999 100
 ```
 First row contains the coordinate system. 
 Following rows for GCP's starts with the number of Control Point "P1: "- "Pn: " followed by  X, Y & Z coordinate in your coordinate system. whitespace separate the coords items.
