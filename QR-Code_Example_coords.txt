@@ -1,0 +1,11 @@
+WGS84 UTM 39N
+P0: myCoordsAtP0x myCoordsAtP0y 100
+P1: myCoordsAtP1x myCoordsAtP1y 100
+P2: myCoordsAtP2x myCoordsAtP2y 100
+P3: myCoordsAtP3x myCoordsAtP3y 100
+P4: myCoordsAtP4x myCoordsAtP4y 100
+P5: myCoordsAtP5x myCoordsAtP5y 100
+P6: myCoordsAtP6x myCoordsAtP6y 100
+P7: myCoordsAtP7x myCoordsAtP7y 100
+P8: myCoordsAtP8x myCoordsAtP8y 100
+P9: myCoordsAtP9x myCoordsAtP9y 100
