@@ -2,7 +2,7 @@
 
 Create GCP_List.txt files from a ODM Data Set with more than 100 images is an painstaking task. This Python Script will do this task for you.
 
-This repository contains some example data stored in "Images", "gcp -templates" and koords.txt. The images inside "images" are not a full usable ODM Data Set. There are only a few images to test successfully the functionality of this script.
+This repository contains some example data stored in "Images", "gcp -templates" and coords.txt. The images inside "images" are not a full usable ODM Data Set. There are only a few images to test successfully the functionality of this script.
 
 ## Technik behind:
 Feature Matching + Homography to find Objects (for example GCP_Image_Templates in an ODM image set)
@@ -13,12 +13,12 @@ opencv, libopencv-features2d, libopencv-flann, libopencv-nonfree
 
 # Run gcp_txt_gen.py
 
-Simple create an project root directory and place gcp_txt_gen.py and koords.txt in it. Inside the project root create "images" directory and "gcp-templates" directory.  
+Simple create an project root directory and place gcp_txt_gen.py and coords.txt in it. Inside the project root create "images" directory and "gcp-templates" directory.  
 
-## Create koords.txt
-koords.txt contains your gps coordinates x y z sorted by points.
+## Create coords.txt
+coords.txt contains your gps coordinates x y z sorted by points.
 
-Example koords.txt
+Example coords.txt
 ```
 WGS84 UTM 32N
 P1: 481367 5782936 100
