@@ -9,7 +9,8 @@ Feature Matching + Homography to find Objects (for example GCP_Image_Templates i
 [Learn More](http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_feature2d/py_feature_homography/py_feature_homography.html)
 
 ## Dependencies
-opencv, libopencv-features2d, libopencv-flann, libopencv-nonfree
+opencv, libopencv-flann, libopencv-nonfree
+Optinal for Qr-Code template compare install zbar-tools
 
 # Run gcp_txt_gen.py
 
