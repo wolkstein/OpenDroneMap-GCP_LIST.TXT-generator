@@ -51,15 +51,26 @@ Gimp, create new image from selection
 Now you can run the script.
 Option -d enable debug output. This will additionally create an DEBUG-GCP_LIST.txt file. In this file at the beginning of each row you can find the GCP Nr. P1 - Pn. This will help you to check images if we really find the right positions. Option --min_match_count is default at 12. 
 ```
-usage: gcp_txt_gen.py [-h] [-d] [--min_match_count MIN_MATCH_COUNT]
+usage: gcp_txt_gen.py [-h] [-d] [-q] [--min_match_count MIN_MATCH_COUNT]
+                      [-f FIRST_GCP_POINT] [-i IGNORE_BORDER]
 
 optional arguments:
   -h, --help            show this help message and exit
-  -d, --debug           Will create an GCP_LIST.txt file with Pointnames P1 -
-                        Pn in each row
+  -d, --debug           Will additionally create an DEBUG-GCP_LIST.txt file
+                        with Pointnames P1 - Pn in each row
+  -q, --qr_code_compare
+                        compare QR-Code in GCP matches against the QR Code
+                        from Template QR-Code based GCP. This needs QR Code
+                        based GCPs
   --min_match_count MIN_MATCH_COUNT
                         min_match_count "Default = 12, Min = 4" set the
                         minimum amount of required good keypoints to accept a
+                        match of Template in Image
+  -f FIRST_GCP_POINT, --first_gcp_point FIRST_GCP_POINT
+                        GCP Point start from [n] number
+  -i IGNORE_BORDER, --ignore_border IGNORE_BORDER
+                        Ignore GCP Point inside Image Border [px].
+
 
 ```
 If the script finished successfully you get an nice gcp_list.txt file in working directory.
